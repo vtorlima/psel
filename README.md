@@ -13,7 +13,7 @@ Ficamos muito felizes com o resultado tanto na quantidade de pessoas, quanto na 
 Contudo, nós sabiamos que o processo poderia ser melhor. Antes sendo apenas um desafio específico deixavamos de lado muitas outras áreas de atuação do PATOS e seus integrandes. Um reverse proxy foca muito em redes que de fato é uma das nossas grandes áreas de atuação, mas e o resto? E o pessoal de Segurança?.. Hardware, SRE, OpenSurce?  
 Além disso, acreditamos que chegamos em um plato (de fato elevado) de qualidade no antigo desafio. Os ultimos processos seletivos tiveram uma qualidade de entrega tão alta (diga-se de passagem, enviados todos por bixos) que não saberiamos mais como esperar menos ou aumentar o desafio para mais entregas.
 
-Pensando nisso, resolvemos criar o **PATOS PSEL 2.0**. Um processo seletivo que abrange todas as áreas do PATOS e que permite que você escolha o desafio que mais se encaixa com o seu perfil e com a sua vontade de aprender.
+Pensando nisso, resolvemos criar o **PATOS PSEL 2.0**. Um processo seletivo que abrange mais áreas do PATOS e que permite que você escolha o desafio que mais se encaixa com o seu perfil e com a sua vontade de aprender.
 
 ----
 
