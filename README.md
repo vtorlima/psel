@@ -1,81 +1,28 @@
-# PATOS PSEL
+# PATOS PSEL 2.0
 
 Tá sempre aberto, só enviar o PR
 
 ---
 
-Dê um fork neste repositório e desenvolva nele. Quando estiver pronto, abra um PR.
+### Hey! Bem vindo a segunda edição do PATOS PSEL! **Clap Clap 👏👏**
 
-Deve ser desenvolvido um `Reverse Proxy/Servidor de Arquivos` (a partir de `Berkley Sockets`) em sua linguagem de preferência, de qualquer forma, é preciso conseguir acessá-la de um navegador (HTTP).
+Durante os quase **Dois** primeiros anos do PATOS este processo de entrada de todos era um unico desafio a criação de um **reverse proxy** na prática o que queriamos era entregar algo baixo nível que deveria ser feito sem a ajuda de bibliotecas e sem ser nas **linguagens fácieis** como Python ou JavaScript. E o objetivo de vocês era justamente receber algo difícil e não tão comum e saber lidar com o "Ok, eu não sei nada disso" principalmente indo para o "Eu não sei nada disso, mas vou aprender, eu não tenho medo de errar e aprender algo novo".
 
-[**sem lib dmais** -> PRECISA fazer o parsing do HTTP na mão].
-Não é pra fazer assim:
+Ficamos muito felizes com o resultado tanto na quantidade de pessoas, quanto na qualidade de cada uma delas. Descobrimos que sim, o processo seletivo funcionou bem e conseguimos trazer pessoas incríveis para o time, que de fato se encaixaram na cultura e no jeito PATOS de ser. Ficamos mais felizes ainda que não precisamos também de nenhuma bullshitagem de seleção como dinamicas de grupo, testes de personalidade, perguntas capciosas ou qualquer outra coisa que não fosse um bom desafio técnico.
 
-```py
-from thingdoer import ThingDoer
+Contudo, nós sabiamos que o processo poderia ser melhor. Antes sendo apenas um desafio específico deixavamos de lado muitas outras áreas de atuação do PATOS e seus integrandes. Um reverse proxy foca muito em redes que de fato é uma das nossas grandes áreas de atuação, mas e o resto? E o pessoal de Segurança?.. Hardware, SRE, OpenSurce?  
+Além disso, acreditamos que chegamos em um plato (de fato elevado) de qualidade no antigo desafio. Os ultimos processos seletivos tiveram uma qualidade de entrega tão alta (diga-se de passagem, enviados todos por bixos) que não saberiamos mais como esperar menos ou aumentar o desafio para mais entregas.
 
-ThingDoer.do_thing()
-```
+Pensando nisso, resolvemos criar o **PATOS PSEL 2.0**. Um processo seletivo que abrange todas as áreas do PATOS e que permite que você escolha o desafio que mais se encaixa com o seu perfil e com a sua vontade de aprender.
 
-Linguagens:
+----
 
-- C/C++
-- ASM
-- Go
-- Rust
-- Zig
-- Clojure
-- Erlang
-- Qualquer outra desde que não tenha muita coisa pronta (ou seja, não para python ou JS)
+### Como funciona o PATOS PSEL 2.0?
 
-(Nossa recomendação é algo tipo C++11 / Go, é bem parecido com C, mas deixa mais facil pq tem string, vector, map etc)
+Na segunda edição do PATOS PSEL, você poderá escolher entre 4 desafios diferentes, cada um focado em uma área de atuação do PATOS. Os desafios são:
 
-Lembrando que o objetivo não é ser algo extremamtente complexo, a ideia principal é integrar
-direto com o S.O., ou seja, NÃO utilizar libs que abstraiam demais as interações. Queremos
-saber o que vocês acharam difícil, como resolveram, onde acharam que poderiam ter ido mais
-a fundo, etc. Quanto mais coisas "prontas" vocês utilizarem, menos coisa teremos para te avaliar, lembre-se disso.
+- Baixo Nível
+- Segurança
+- Redes
+- Open Source / Comunidade
 
-As entregas serão individuais, mas sintam-se à vontade para trabalhar/discutir em grupo.
-
-**O Código deve ser entregue por um repositório no GitHub, lembre-se de adicionar um README.md**
-
-No final, haverá uma entrevista individual.
-
-Pontos de Avaliação Essenciais:
-
-- **HTTP compliant (conseguir acessar pelo navegador)**
-- **Documentação**
-- **Colaboração (documentar fontes de informação/código, informar sua jornada)**
-- **Organização e Versionamento de Código**
-- **Experiência num Geral, não apenas código**
-
-Pontos de Avaliação Extras (faça oq conseguir/quiser, são apenas pontos para vocês se interessarem,
-não precisam ser explorados):
-
-- testes
-- host validation
-- max connections
-- num workers
-- tratamento de erros
-- memory safety
-- deploy (compilação, empacotamento)
-- telemetria/SRE
-
-Recursos extras:
-
-- https://www.youtube.com/watch?v=iuwSYRdxKjQ
-- https://beej.us/guide/bgnet/html/split/
-- https://github.com/mr21/strsplit.c
-- https://developer.mozilla.org/en-US/docs/Web/HTTP
-- https://en.wikipedia.org/wiki/HTTP
-- https://documentation.help/DogeTool-HTTP-Requests-vt/http_request.htm (ta zuado, mas as fts são boas)
-
-Obs:
-
-- Sinta-se à vontade para nos contactar a qualquer momento sobre qualquer dúvida, adoraremos ajudar!
-- Se tiver uma dúvida geral, ou queira deixar sua dúvida pública utilize a área de [Issues](https://github.com/patos-ufscar/psel/issues)
-- Não se sinta pressionado em fazer tudo, foque no que se sente confortável
-- Envie mesmo se não conseguir terminar as partes essenciais, documente suas dificuldades
-- Escreva um arquivo de texto/Markdown que descreva seu processo
-
-> Lembrando que o processo é pra ser bem de boa, queremos ver até onde conseguem ir/se empurram, sem preocupação em fazer todos os essenciais.
