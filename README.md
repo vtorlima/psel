@@ -4,7 +4,7 @@ Tá sempre aberto, só enviar o PR
 
 ---
 
-### Hey! Bem vindo a segunda edição do PATOS/POMBO PSEL! **Clap Clap 👏👏**
+### Hey! Bem vindo(a) a segunda edição do PATOS/POMBO PSEL! **Clap Clap 👏👏**
 
 Durante os quase **Dois** primeiros anos do PATOS este processo de entrada de todos era um unico desafio, a criação de um **reverse proxy**, na prática o que queriamos era entregar algo "baixo nível" que deveria ser feito sem a ajuda de bibliotecas e sem ser nas **linguagens fácieis** como Python ou JavaScript.  
 E o objetivo de vocês era justamente receber algo difícil e não tão comum e saber lidar com o "Ok, eu não sei nada disso" principalmente indo para o "Eu não sei nada disso, mas vou aprender, eu não tenho medo de errar e aprender algo novo".
