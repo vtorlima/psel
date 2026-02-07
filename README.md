@@ -49,6 +49,68 @@ Na segunda edição do PATOS PSEL, você poderá escolher entre 3 desafios difer
 ### 1. Segurança & Redes - Firewall simples em UserSpace
 
 ### 2. Redes - Load Balancer
+Você deve fazer um load balancer do **zero**, lidando com as conexões e o redirecionamento na mão, sem usar qualquer lib que te auxilie. Além disso, vale ressaltar que você também não pode usar **nenhuma** lib para te ajudar no parsing das requests, ou seja, coisas desse gênero:
+```python
+from balancer import balance
+import parser
+
+server.balance()
+
+parser.parse(request)
+```
+são completamente proíbidas. Queremos descobrir o quão longe vocês estão dispostos a aprenderem sozinhos, mesmo que tenham que reinventar a roda. O Load Balancer deve funcionar em cima de um servidor de arquivos que pode receber e armazenar arquivos de qualquer tipo, a sua escolha.
+
+Para que você tenha uma ideia básica, o funcionamento de um Load Balancer, pode ser simplificado nesta imagem:
+
+![IMAGE](images/loadbalancer.png)
+
+Este processo seletivo é uma jornada de aprendizado, parte dele é descobrir mais detalhes sobre o que é e como funciona um Load Balancer, para que a sua entrega seja uma entrega com qualidade o suficiente para garantir seu ingresso no PATOS.
+
+Lembrando que você só deve utilizar libs **extremamente** necessárias para que seu projeto rode, como por exemplo libs que conectam seu programa a um socket.
+
+Por fim, como último empecilho, linguagens de extremo alto nível como python e javascript estão banidas neste processo seletivo. Recomendamos que você faça seu projeto em linguagens de baixo nível, como essas:
+
+- `C/C++`
+- `ASM`
+- `Go`
+- `Rust`
+- `Zig`
+- `Clojure`
+- `Erlang`
+- Qualquer outra desde que **não** tenha muita coisa pronta.
+
+(Em especial, recomendamos C++/GO pois são linguagens mais parecidas com C mas com algumas regalias como strings, vetores e etc.)
+
+Nós recomendamos fortemente que você não se limite a fazer *apenas* o que nós pedimos. Sinta-se livre para adicionar um diferencial - que pode ser qualquer coisa, desde que relevante - ao seu código.
+
+As entregas serão individuais, mas sinta-se livre para discutir sobre o PSEL em grupo e para olhar as respostas de outros participantes. 
+
+Sobre IA, nós desencorajamos o uso para a entrega deste processo seletivo. "A IA é apenas uma ferramenta. Ela é o **MEIO** e nunca o **FIM**". Se você decidir utilizar, utilize com sabedoria.
+
+``O código deve ser entregue em um repositório do GITHub (que deve ser um fork deste repositório aqui), o qual deve conter um README.md``
+
+Ao fim do processo, caso seu projeto seja aprovado, haverá uma entrevista individual.
+
+#### Pontos de Avaliação:
+- **HTTP Compilant** (conseguir acessar pelo navegador)
+- **Documentação**
+- **Colaboração** (documentar fontes de informações/código e informar sua jornada)
+- **Organização e versionamento de código**
+- **Experiência no Geral, não apenas um código**
+
+> Vale ressaltar que os diferenciais que você adicionar no seu código também contam para a avaliação.
+
+Finalmente, tenha em mente que:
+- Você pode e deve contatar qualquer membro do PATOS em caso de dúvidas sobre o PSEL.
+- Você pode deixar sua dúvida pública para outras pessoas que desejam fazer o PSEL mandando-a em [Issues](https://github.com/patos-ufscar/psel/issues)
+- Não se sinta pressionado a fazer tudo, foque no que se sente confortável.
+- Envie mesmo se não conseguir todas as partes essenciais, documente suas dificuldades.
+- No seu README descreva como foi fazer o processo seletivo, o que você aprendeu, etc. **Documente sua jornada**.
+
+
+``Boa sorte!``
+
+> Lembrando que o processo é pra ser bem de boa, queremos ver até onde conseguem ir/se empurram, sem preocupação em fazer todos os essenciais.
 
 ### 3. Segurança - Histórico de CTF
 
