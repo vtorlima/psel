@@ -56,4 +56,3 @@ Na segunda edição do PATOS PSEL, você poderá escolher entre 3 desafios difer
 
 ### Ajuda
 
-#### Links de apoio
