@@ -23,7 +23,7 @@ Pensando nisso, resolvemos criar o **PATOS PSEL 2.0**. Um processo seletivo que 
 
 ### Quem pode participar?
 
-TODO O MUNDO! Não importa de bixo a veterano de dentro ou fora da UFSCar, de dia noite, nas ferias ou durante as aulas, se você tem vontade de aprender e acha que o PATOS é um lugar onde você pode aprender, se desenvolver e contribuir, esse processo seletivo é pra você!
+TODO O MUNDO! Não importa de bixo a veterano de dentro ou fora da UFSCar, de dia ou noite, nas ferias ou durante as aulas, se você tem vontade de aprender e acha que o PATOS é um lugar onde você pode aprender, se desenvolver e contribuir, esse processo seletivo é pra você!
 
 ### O que é o PATOS e POMBO? São a mesma coisa? O processo seletivo é para qual dos dois?
 
@@ -35,16 +35,16 @@ Este processo seletivo é para ambos, e você pode escolher qualquer desafio par
 
 Não há, espero ter ajudado 👍!  
 Simplesmente não achamos que faça sentido. O PATOS funciona como uma comunidade de pessoas que se juntam para aprender e contribuir (com código, conhecimento, recomendação e memes), não existe um 'nível' ou 'hierarquia' dentro do grupo, todos são iguais e tem voz ativa desde o dia um.
-Além disso, não gostamos da forma engessada e ultrapassada que outros grupos tem, sem contar o tanto de confusão e discórdia que isso gera entre os membros. (Sério que vocês querem receber ordens de outro aluno sem nem receber um salário? Não, obrigado ~Marlon).
+Além disso, não gostamos da forma engessada e ultrapassada que outros grupos tem, sem contar o tanto de confusão e discórdia que isso gera entre os membros. (Sério que vocês querem receber ordens de outro aluno sem nem receber um salário? Não, obrigado ~Marlon).   
 Se você entrar no PATOS saiba que você é membro e no máximo vamos ter um 'bixo' e um 'veterano', mas isso é só para diferenciar quem entrou recentemente de quem já tem mais tempo, não tem nada a ver com 'nível' ou 'hierarquia' e você pode levantar a mão puxar algo ou criticar algo também!
 
 #### O que fazemos dentro do PATOS
 
-
+---COMPLETAR PLS---
 
 ### Como funciona o PATOS/POMBO PSEL 2.0?
 
-Na segunda edição do PATOS PSEL, você poderá escolher entre 3 desafios diferentes, cada um focado em uma área de atuação do PATOS. Os desafios são:
+Na segunda edição do PATOS PSEL, você poderá escolher entre 4 desafios diferentes, cada um focado em uma área de atuação do PATOS. Os desafios são:
 
 - 1. Segurança & Redes - Firewall simples em UserSpace
 - 2. Redes - Load Balancer
@@ -56,7 +56,7 @@ Na segunda edição do PATOS PSEL, você poderá escolher entre 3 desafios difer
   
 
 
-### 1. Segurança & Redes - Firewall simples em UserSpace
+## 1. Segurança & Redes - Firewall simples em UserSpace
 
 Você deve fazer um firewall em userspace do **zero**, lidando com o recebimento e filtragem de pacotes, tudo isso na mão, sem usar qualquer lib que abstraia demais o código. Você deve fazer com que o seu firewall atue em um IP diferente do IP da sua máquina, criando uma interface de rede virtual (TUN) e roteando o trafego de uma sub-rede inteira (ex: 10.0.0.x/24) para ela.
 
@@ -116,7 +116,7 @@ Se você desejar inserir um diferencial diferente dos citados acima, sinta-se li
 
 Você também **pode** enviar o seu processo seletivo sem ter feito todos os pontos essenciais de avaliação, mas certifique-se de cumprir pelo menos 2 deles.
 
-Nós não recomendamos o uso de IA, mas caso você utilize, use com sabedoria, lembre-se que faremos perguntas técnicas sobre seu código durante a entrevista.
+Você pode usar IA, mas caso você utilize, use com sabedoria, lembre-se que faremos perguntas técnicas sobre seu código durante a entrevista.
 
 ``O código deve ser entregue em um repositório do github, no caso, um fork deste repositório aqui. Quando tudo estiver finalizado, abra um pull request para a branch main, e seu projeto estará entregue. Lembre-se de adicionar um README.md``
 
@@ -199,9 +199,9 @@ Finalmente, tenha em mente que:
 
 ### 3. Segurança - Histórico de CTF
 
-Se você se interessa mais pela área de segurança e já tem experiência prévia, nós temos boas notícias para você! Você pode entrar no PATOS **sem ter que fazer o firewall ou o load balancer**: Basta que você tenha participado de algum CTF e consiga comprovar que você resolver, corretamente, pelo menos 1 challenge (mas sinta-se a vontade para mostrar mais challenges resolvidos!).
+Se você se interessa mais pela área de segurança e já tem experiência prévia, nós temos boas notícias para você! Você pode entrar no PATOS **sem ter que fazer o firewall ou o load balancer**: Basta que você tenha participado de algum CTF e consiga comprovar que você resolveu, corretamente, pelo menos 1 challenge (mas sinta-se a vontade para mostrar mais challenges resolvidos!).
 
-#### O que fazer para concorrer nesta categoria do PSEL?
+#### O que fazer para participar nesta categoria do PSEL?
 
 Você ainda deve dar um fork neste github e depois mandar um pull request quando tudo estiver concluído. Você deve **obrigatóriamente** descrever os seguintes aspectos no seu README:
 - Nome do CTF e data que ele ocorreu
@@ -209,14 +209,14 @@ Você ainda deve dar um fork neste github e depois mandar um pull request quando
 - Descrever o seu raciocínio para resolver o challenge (por onde você começou, quais vulnerabilidades você encontrou e como você as encontrou, etc.)
 - Explicar as técnicas utilizadas para explorar as vulnerabilidades encontradas
 - Caso você tenha utilizado um script para resolver o challenge, também explique como e por que você fez o script.
-
-Além disso, o seu repositório deve conter uma cópia dos scripts utilizados para resolver o challenge (se possível, os arquivos do próprio challenge também), e prints comprovando que você resolveu o challenge corretamente.
+- O famoso Writeup, inclusive se ele ja existir você pode linkar ele, mas é importante que você escreva um resumo do seu processo de resolução do challenge, mesmo que o writeup já exista, para que a gente possa entender o seu raciocínio e o seu processo de resolução.
+  
 
 > Esses serão os principais pontos de avaliação do seu processo seletivo.
 
 Nós gostaríamos também que você nos contasse um pouco da sua história com a segurança da informação e as competições de CTF. Conte um pouco da sua jornada para nós!
 
-Se você tiver feito tudo corretamente, nós o convocaremos para uma entrevista, assim como nos outros desafios!
+Se você tiver feito tudo, nós o convocaremos para uma entrevista, assim como nos outros desafios!
 
 ``Boa Sorte!``
 
@@ -238,7 +238,7 @@ Você deve **obrigatóriamente** fazer um README contendo os seguintes requisito
 
 > Esses são os principais pontos de avaliação do seu processo seletivo.
 
-Se você tiver feito tudo corretamente, nós o convocaremos para uma entrevista, assim como nos outros desafios!
+Se você tiver feito tudo, nós o convocaremos para uma entrevista, assim como nos outros desafios!
 
 ``Boa Sorte!``
 
