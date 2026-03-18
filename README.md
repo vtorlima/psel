@@ -48,6 +48,81 @@ Na segunda edição do PATOS PSEL, você poderá escolher entre 3 desafios difer
 
 ### 1. Segurança & Redes - Firewall simples em UserSpace
 
+Você deve fazer um firewall em userspace do **zero**, lidando com o recebimento e filtragem de pacotes, tudo isso na mão, sem usar qualquer lib que abstraia demais o código. Você deve fazer com que o seu firewall atue em um IP diferente do IP da sua máquina, criando uma interface de rede virtual (TUN) e roteando o trafego de uma sub-rede inteira (ex: 10.0.0.x/24) para ela.
+
+Para que você tenha uma ideia geral do que é um firewall, separamos esta imagem:
+
+![IMAGE](images/firewall.jpeg)
+
+Você não pode utilizar linguagens que abstraiam demais o seu código, ou seja: nada de python e java script. Ou seja, nada de coisas nesse tipo:
+
+```python
+from pyfire import Firewall
+
+firewall = Firewall(ip)
+
+firewall.ban(word_list)
+firewall.ban(ip)
+```
+
+ Nós particularmente recomendamos as seguintes linguagens:
+- `C/C++`
+- `ASM`
+- `Go`
+- `Rust`
+- `Zig`
+- `Clojure`
+- `Erlang`
+- Qualquer outra desde que **não** tenha muita coisa pronta.
+
+Este desafio tem como objetivo testar a resiliência de vocês em aprender novas tecnologias e o quão longe vocês estão dispostos a ir começando do zero.
+
+> Você só deve utilizar libs que são ESSENCIAIS para o funcionamento do seu projeto, e que não vão abstrair nenhum código relacionado ao funcionamento do firewall.
+
+Os seguintes tópicos serão os principais **pontos de avaliação** do seu projeto:
+
+- **Funcionamento em cima de um IP específico, diferente do IP da sua máquina**
+- **Filtragem e resposta de PING (ICMP)**
+    - Deve bloquear pelo menos um destino da sub-rede de receber qualquer pacote (ex: 10.0.0.2 e 10.0.0.3, recebem pacotes, já 10.0.0.50 não recebe pacote nenhum)
+    - Deve responder ao ping efetuado por outro terminal
+
+- **Filtragem de pacotes UDP**
+    - Deve filtrar pacotes UDP recebidos baseado em uma lista de palavras proibídas
+
+- **Filtragem de pacotes TCP**
+    - Deve filtrar pacotes TCP recebidos baseado em uma lista de palavras proibídas
+
+- Documentação
+- Colaboração
+- Experiência num geral. Não é só um código
+
+Além disso, existem alguns diferênciais para este projeto que você pode tentar fazer (mas não é tão obrigatório quanto os outros pontos):
+- Logs customizadas para cada interação no terminal
+- Exibição do conteúdo dos pacotes (payload) caso existam
+- Three-Way Handshake do TCP (SYN e SYN-ACK)
+- Forjar pacotes ACK para aceitação e RST para rejeição de pacotes maliciosos.
+
+Se você desejar inserir um diferencial diferente dos citados acima, sinta-se livre para fazer isso! Nós recomendamos fortemente que você não se limite a fazer apenas o que nós pedimos.
+
+Você também **pode** enviar o seu processo seletivo sem ter feito todos os pontos essenciais de avaliação, mas certifique-se de cumprir pelo menos 2 deles.
+
+Nós não recomendamos o uso de IA, mas caso você utilize, use com sabedoria, lembre-se que faremos perguntas técnicas sobre seu código durante a entrevista.
+
+``O código deve ser entregue em um repositório do github, no caso, um fork deste repositório aqui. Quando tudo estiver finalizado, abra um pull request para a branch main, e seu projeto estará entregue. Lembre-se de adicionar um README.md``
+
+Se você tiver feito tudo corretamente e seu código for aprovado, você terá uma fase de entrevista, comum a todos os 4 desafios deste processo seletivo.
+
+Finalmente, tenha em mente que:
+- Você pode e deve contatar qualquer membro do PATOS em caso de dúvidas sobre o PSEL.
+- Você pode deixar sua dúvida pública para outras pessoas que desejam fazer o PSEL mandando-a em [Issues](https://github.com/patos-ufscar/psel/issues)
+- Não se sinta pressionado a fazer tudo, foque no que se sente confortável.
+- Envie mesmo se não conseguir todas as partes essenciais, documente suas dificuldades.
+- No seu README descreva como foi fazer o processo seletivo, o que você aprendeu, etc. **Documente sua jornada**.
+
+``Boa sorte!``
+
+> Lembrando que o processo é pra ser bem de boa, queremos ver até onde conseguem ir/se empurram, sem preocupação em fazer todos os essenciais.
+
 ### 2. Redes - Load Balancer
 Você deve fazer um load balancer do **zero**, lidando com as conexões e o redirecionamento na mão, sem usar qualquer lib que te auxilie. Além disso, vale ressaltar que você também não pode usar **nenhuma** lib para te ajudar no parsing das requests, ou seja, coisas desse gênero:
 ```python
@@ -165,6 +240,16 @@ Achou alguma modalidade do PSEL muito difícil? Não fique desanimado, a dificul
 
 > Vale ressaltar também que não é uma boa ideia plagiar o projeto do coleguinha, já que nós sempre comparamos os projetos.
 
+Além disso, a inteção dos desafios de código e avaliar o quão longe vocês estão dispostos a pesquisarem e aprenderem por conta própria. **Não se sintam pressionados a fazer todos os pontos essenciais de avaliação e todos os diferenciais! Foque em entregar o básico bem feito!**
+
 Abaixo disponibilizamos alguns links para sites que podem ser úteis para o andamento do projeto de vocês.
 
 #### Links de apoio
+
+- Firewall escrito em C com poucas funcionalidades para referência: https://github.com/pagekite/libunaccept
+
+- Como funciona um firewall: https://www.fortinet.com/resources/cyberglossary/how-does-a-firewall-work
+
+- Como funciona um load balancer: https://aws.amazon.com/what-is/load-balancing/
+
+- Como funciona um servidor HTTP básico: https://medium.com/@gabriellamedas/the-http-server-explained-c41380307917
