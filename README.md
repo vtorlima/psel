@@ -23,13 +23,23 @@ Pensando nisso, resolvemos criar o **PATOS PSEL 2.0**. Um processo seletivo que 
 
 ### Quem pode participar?
 
-### O que é o PATOS/POMBO?
+TODO O MUNDO! Não importa de bixo a veterano de dentro ou fora da UFSCar, de dia noite, nas ferias ou durante as aulas, se você tem vontade de aprender e acha que o PATOS é um lugar onde você pode aprender, se desenvolver e contribuir, esse processo seletivo é pra você!
 
-#### POMBO e PATOS é a mesma coisa?
+### O que é o PATOS e POMBO? São a mesma coisa? O processo seletivo é para qual dos dois?
+
+PATOS é o grupo de Open Source da UFSCar, além de ser um grupo de estudos, um grupo de pesquisa, um grupo de desenvolvimento, um grupo de pessoas que se juntam para aprender e contribuir tanto com código tnato com conhecimento. Outra grande frente nossa são os Aulões, onde a gente ensina o que a gente sabe para a comunidade, seja ela interna ou externa.  
+Já o POMBO é o grupo de Cibersegurança da UFSCar, sua existencia é anterior ao PATOS, mas hoje em dia é um subgrupo do PATOS, 'a frente' de segurança.  
+Este processo seletivo é para ambos, e você pode escolher qualquer desafio para entrar no PATOS, que consequentemente te dá acesso ao POMBO, caso queira participar da frente de segurança.
 
 #### Como funciona a hierarquia no PATOS/POMBO?
 
+Não há, espero ter ajudado 👍!  
+Simplesmente não achamos que faça sentido. O PATOS funciona como uma comunidade de pessoas que se juntam para aprender e contribuir (com código, conhecimento, recomendação e memes), não existe um 'nível' ou 'hierarquia' dentro do grupo, todos são iguais e tem voz ativa desde o dia um.
+Além disso, não gostamos da forma engessada e ultrapassada que outros grupos tem, sem contar o tanto de confusão e discórdia que isso gera entre os membros. (Sério que vocês querem receber ordens de outro aluno sem nem receber um salário? Não, obrigado ~Marlon).
+Se você entrar no PATOS saiba que você é membro e no máximo vamos ter um 'bixo' e um 'veterano', mas isso é só para diferenciar quem entrou recentemente de quem já tem mais tempo, não tem nada a ver com 'nível' ou 'hierarquia' e você pode levantar a mão puxar algo ou criticar algo também!
+
 #### O que fazemos dentro do PATOS
+
 
 
 ### Como funciona o PATOS/POMBO PSEL 2.0?
