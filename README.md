@@ -114,8 +114,57 @@ Finalmente, tenha em mente que:
 
 ### 3. Segurança - Histórico de CTF
 
+Se você se interessa mais pela área de segurança e já tem experiência prévia, nós temos boas notícias para você! Você pode entrar no PATOS **sem ter que fazer o firewall ou o load balancer**: Basta que você tenha participado de algum CTF e consiga comprovar que você resolver, corretamente, pelo menos 1 challenge (mas sinta-se a vontade para mostrar mais challenges resolvidos!).
+
+#### O que fazer para concorrer nesta categoria do PSEL?
+
+Você ainda deve dar um fork neste github e depois mandar um pull request quando tudo estiver concluído. Você deve **obrigatóriamente** descrever os seguintes aspectos no seu README:
+- Nome do CTF e data que ele ocorreu
+- Tipo do challenge que você resolveu (RevEng, Web, Pwd, etc)
+- Descrever o seu raciocínio para resolver o challenge (por onde você começou, quais vulnerabilidades você encontrou e como você as encontrou, etc.)
+- Explicar as técnicas utilizadas para explorar as vulnerabilidades encontradas
+- Caso você tenha utilizado um script para resolver o challenge, também explique como e por que você fez o script.
+
+Além disso, o seu repositório deve conter uma cópia dos scripts utilizados para resolver o challenge (se possível, os arquivos do próprio challenge também), e prints comprovando que você resolveu o challenge corretamente.
+
+> Esses serão os principais pontos de avaliação do seu processo seletivo.
+
+Nós gostaríamos também que você nos contasse um pouco da sua história com a segurança da informação e as competições de CTF. Conte um pouco da sua jornada para nós!
+
+Se você tiver feito tudo corretamente, nós o convocaremos para uma entrevista, assim como nos outros desafios!
+
+``Boa Sorte!``
+
 ### 4. Open Source / Comunidade - Contribuição para um projeto open source
 
+Para aqueles que já possuem experiência prática em projetos open source, o PATOS também decidiu facilitar sua entrada para o grupo! Você não precisa fazer o firewall nem o load balancer, também: basta que você comprove que você contribuiu efetivamente para algum projeto open source.
+
+#### O que fazer para concorrer nesta categoria do PSEL?
+
+O fork deste repositório continua sendo obrigatório, para que possamos analisar os envios de todos de uma forma mais padronizada. Quando tudo estiver pronto, mande um pull request e nós avaliaremos o conteúdo da sua aplicação para o PSEL.
+
+Você deve **obrigatóriamente** fazer um README contendo os seguintes requisitos:
+
+- Nome do projeto Open Source e linguagens utilizadas nele
+- Link do repositório do projeto
+- Link do seu pull request aceito
+- Explicação detalhada da sua contribuição
+- Detalhes de como você descobriu esse projeto e como você decidiu fazer sua contribuição para o mesmo, descrevendo os desafios que você enfrentou e sua experiência num geral durante processo de contribuição
+
+> Esses são os principais pontos de avaliação do seu processo seletivo.
+
+Se você tiver feito tudo corretamente, nós o convocaremos para uma entrevista, assim como nos outros desafios!
+
+``Boa Sorte!``
+
 ### Ajuda
+
+Achou alguma modalidade do PSEL muito difícil? Não fique desanimado, a dificuldade é proposital, mas garantimos que o processo seletivo **não é impossível**. Você sempre pode perguntar para algum membro do PATOS sobre dicas para fazer o PSEL e também discutir com outros candidatos sobre como cada um está fazendo o processo seletivo.
+
+**Mas lembrem-se, a entrega do processo seletivo é INDIVIDUAL, ou seja: vocês podem se ajudar a fazer o PSEL, mas cada um deve entregar o seu!** 
+
+> Vale ressaltar também que não é uma boa ideia plagiar o projeto do coleguinha, já que nós sempre comparamos os projetos.
+
+Abaixo disponibilizamos alguns links para sites que podem ser úteis para o andamento do projeto de vocês.
 
 #### Links de apoio
