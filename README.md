@@ -40,7 +40,19 @@ Se você entrar no PATOS saiba que você é membro e no máximo vamos ter um 'bi
 
 #### O que fazemos dentro do PATOS
 
----COMPLETAR PLS---
+Uma das coisas que fazemos dentro do PATOS são os aulões que ocorrem durante o ano todo, sem uma data muito fixa. Os temas são variados e livres (mas na maioria das vezes relacionados a projetos open source, redes, segurança, cloud, etc.), e são escolhidos pelos próprios membros. Se você estiver estudando algum tema interessante e decidir que quer expor esse conhecimento publicamente, você pode marcar um aulão pra você sempre que quiser, sobre o tema que quiser.
+
+Além dos aulões, o PATOS também detém uma boa bagagem de participações em Hackatons, tendo ficado no pódio nos 3 últimos Hackatons da SECOMP. Também tivemos um pódio importante em um Hackaton internacional de eBPF, o eBPF Summit 2025, em que 4 integrantes do PATOS formaram um grupo e venceram o hackaton. Dito isso, se você desejar participar de um hackaton, basta mandar no grupo que certamente você irá conseguir fechar um time para competir.
+
+Ainda sobre as competições, o POMBO, a frente de segurança do PATOS, participa de alguns CTFs ao longo do ano, sendo uma boa oportunidade para testar seus conhecimentos de segurança e técnicas de penetração.
+
+Durante a SECOMP, também organizamos um CTF próprio que todos que participam da Semana da Computação podem jogar. Cada membro (que quiser participar da produção de challenges) manda 1, 2 ou mais challenges para compor o CTF da SECOMP.
+
+Finalmente, o PATOS também é um lugar muito propício para ir em eventos de computação, você sempre pode mandar um evento que você deseja ir no grupo e ver se outros membros gostariam de ir com você! As vezes isso facilita muito e barateia os custos já que vocês podem dividir meio de transporte e afins.
+
+Vale mencionar que o PATOS é um grupo bem aberto e isso significa que você pode conversar com os outros membros para fazer qualquer tipo de projeto em grupo, desde que ele seja pertinente e se relacione com os temas de PATOS (Redes, Open Source, Segurança, etc.)
+
+---
 
 ### Como funciona o PATOS/POMBO PSEL 2.0?
 
@@ -53,10 +65,11 @@ Na segunda edição do PATOS PSEL, você poderá escolher entre 4 desafios difer
 
 #### O que esperamos
 - Pesquise, saiba lidar com problemas dificeis e busque aprender coisas novas
+- O PSEL foi pensado pra ser uma jornada, e não um simples desafio de código, por isso, nós gostaríamos que você nos mostrasse seu processo de aprendizado e os desafios que você enfrentou durante ele.
   
+---
 
-
-## 1. Segurança & Redes - Firewall simples em UserSpace
+### 1. Segurança & Redes - Firewall simples em UserSpace
 
 Você deve fazer um firewall em userspace do **zero**, lidando com o recebimento e filtragem de pacotes, tudo isso na mão, sem usar qualquer lib que abstraia demais o código. Você deve fazer com que o seu firewall atue em um IP diferente do IP da sua máquina, criando uma interface de rede virtual (TUN) e roteando o trafego de uma sub-rede inteira (ex: 10.0.0.x/24) para ela.
 
@@ -104,9 +117,11 @@ Os seguintes tópicos serão os principais **pontos de avaliação** do seu proj
 
 - Documentação
 - Colaboração
+    - Tente disponibilizar as fontes de pesquisa que você utilizou para construir seu projeto
+- Organização e Versionamento de Código
 - Experiência num geral. Não é só um código
 
-Além disso, existem alguns diferênciais para este projeto que você pode tentar fazer (mas não é tão obrigatório quanto os outros pontos):
+Além disso, existem alguns diferênciais para este projeto que você pode tentar fazer (sendo completamente opcionais):
 - Logs customizadas para cada interação no terminal
 - Exibição do conteúdo dos pacotes (payload) caso existam
 - Three-Way Handshake do TCP (SYN e SYN-ACK)
@@ -114,9 +129,9 @@ Além disso, existem alguns diferênciais para este projeto que você pode tenta
 
 Se você desejar inserir um diferencial diferente dos citados acima, sinta-se livre para fazer isso! Nós recomendamos fortemente que você não se limite a fazer apenas o que nós pedimos.
 
-Você também **pode** enviar o seu processo seletivo sem ter feito todos os pontos essenciais de avaliação, mas certifique-se de cumprir pelo menos 2 deles.
-
 Você pode usar IA, mas caso você utilize, use com sabedoria, lembre-se que faremos perguntas técnicas sobre seu código durante a entrevista.
+
+Outro ponto importante: nós queremos acompanhar o seu processo de aprendizado enquanto você faz o PSEL, então tente fazer commits sempre que você conseguir fazer algum progresso, grande ou pequeno!
 
 ``O código deve ser entregue em um repositório do github, no caso, um fork deste repositório aqui. Quando tudo estiver finalizado, abra um pull request para a branch main, e seu projeto estará entregue. Lembre-se de adicionar um README.md``
 
@@ -132,6 +147,10 @@ Finalmente, tenha em mente que:
 ``Boa sorte!``
 
 > Lembrando que o processo é pra ser bem de boa, queremos ver até onde conseguem ir/se empurram, sem preocupação em fazer todos os essenciais.
+
+> É difícil de propósito pra separar quem está disposto a se desafiar de quem não quer sair da zona de conforto, então só de **tentar** fazer os essenciais, você já sai no lucro.
+
+---
 
 ### 2. Redes - Load Balancer
 Você deve fazer um load balancer do **zero**, lidando com as conexões e o redirecionamento na mão, sem usar qualquer lib que te auxilie. Além disso, vale ressaltar que você também não pode usar **nenhuma** lib para te ajudar no parsing das requests, ou seja, coisas desse gênero:
@@ -170,9 +189,9 @@ Nós recomendamos fortemente que você não se limite a fazer *apenas* o que nó
 
 As entregas serão individuais, mas sinta-se livre para discutir sobre o PSEL em grupo e para olhar as respostas de outros participantes. 
 
-Sobre IA, nós desencorajamos o uso para a entrega deste processo seletivo. "A IA é apenas uma ferramenta. Ela é o **MEIO** e nunca o **FIM**". Se você decidir utilizar, utilize com sabedoria.
+Sobre IA: "A IA é apenas uma ferramenta. Ela é o **MEIO** e nunca o **FIM**". Se você decidir utilizar, utilize com sabedoria. *Lembre-se que na fase de entrevista, faremos perguntas sobre o seu código!*
 
-``O código deve ser entregue em um repositório do GITHub (que deve ser um fork deste repositório aqui), o qual deve conter um README.md``
+``O código deve ser entregue em um repositório do github, no caso, um fork deste repositório aqui. Quando tudo estiver finalizado, abra um pull request para a branch main, e seu projeto estará entregue. Lembre-se de adicionar um README.md``
 
 Ao fim do processo, caso seu projeto seja aprovado, haverá uma entrevista individual.
 
@@ -183,7 +202,7 @@ Ao fim do processo, caso seu projeto seja aprovado, haverá uma entrevista indiv
 - **Organização e versionamento de código**
 - **Experiência no Geral, não apenas um código**
 
-> Vale ressaltar que os diferenciais que você adicionar no seu código também contam para a avaliação.
+> Vale ressaltar que adicionar um diferencial no seu projeto é completamente opcional.
 
 Finalmente, tenha em mente que:
 - Você pode e deve contatar qualquer membro do PATOS em caso de dúvidas sobre o PSEL.
@@ -196,6 +215,10 @@ Finalmente, tenha em mente que:
 ``Boa sorte!``
 
 > Lembrando que o processo é pra ser bem de boa, queremos ver até onde conseguem ir/se empurram, sem preocupação em fazer todos os essenciais.
+
+> É difícil de propósito pra separar quem está disposto a se desafiar de quem não quer sair da zona de conforto, então só de **tentar** fazer os essenciais, você já sai no lucro.
+
+---
 
 ### 3. Segurança - Histórico de CTF
 
@@ -220,6 +243,8 @@ Se você tiver feito tudo, nós o convocaremos para uma entrevista, assim como n
 
 ``Boa Sorte!``
 
+___
+
 ### 4. Open Source / Comunidade - Contribuição para um projeto open source
 
 Para aqueles que já possuem experiência prática em projetos open source, o PATOS também decidiu facilitar sua entrada para o grupo! Você não precisa fazer o firewall nem o load balancer, também: basta que você comprove que você contribuiu efetivamente para algum projeto open source.
@@ -242,7 +267,7 @@ Se você tiver feito tudo, nós o convocaremos para uma entrevista, assim como n
 
 ``Boa Sorte!``
 
-### Ajuda
+## Ajuda
 
 Achou alguma modalidade do PSEL muito difícil? Não fique desanimado, a dificuldade é proposital, mas garantimos que o processo seletivo **não é impossível**. Você sempre pode perguntar para algum membro do PATOS sobre dicas para fazer o PSEL e também discutir com outros candidatos sobre como cada um está fazendo o processo seletivo.
 
