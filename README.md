@@ -62,7 +62,7 @@ Além disso, os membros grupo sempre estão pesquisando/estudando algum conteúd
 
 #### Você não estará sozinho
 
-Como mencionado alguns parágrafos acima, o PATOS é um grupo que incentiva as atividades em grupo, e dificilmente você não conseguirá fechar um grupo parar fazer algum projeto que deseje.
+Como mencionado alguns parágrafos acima, o PATOS é um grupo que incentiva as atividades em grupo, e dificilmente você não conseguirá fechar um grupo parar fazer algum projeto, pesquisa ou competição que deseje.
 
 #### Networking
 
