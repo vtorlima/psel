@@ -52,6 +52,31 @@ Finalmente, o PATOS também é um lugar muito propício para ir em eventos de co
 
 Vale mencionar que o PATOS é um grupo bem aberto e isso significa que você pode conversar com os outros membros para fazer qualquer tipo de projeto em grupo, desde que ele seja pertinente e se relacione com os temas de PATOS (Redes, Open Source, Segurança, etc.)
 
+### Quais as vantagens de entrar no PATOS?
+
+#### Experiência
+
+Durante as atividades do grupo você poderá desenvolver diversas habilidades técnicas, por conta dos Hackatons e projetos que acabamos participando, e também soft-skills, devido aos aulões que proporcionamos para a comunidade - construindo uma base sólida para boas apresentações e para uma boa comunicação.
+
+Além disso, os membros grupo sempre estão pesquisando/estudando algum conteúdo novo, fazendo do PATOS um grupo que reúne pessoas focadas em melhorar o próprio repertório intelectual.
+
+#### Você não estará sozinho
+
+Como mencionado alguns parágrafos acima, o PATOS é um grupo que incentiva as atividades em grupo, e dificilmente você não conseguirá fechar um grupo parar fazer algum projeto que deseje.
+
+#### Networking
+
+Algo que conta bastante para a vida profissional de todo universitário é o Networking, ter uma boa rede de contatos é essencial para se lançar no mercado de trabalho. O PATOS pode te proporcionar um bom networking, haja vista que alguns membros e ex-membros já passaram por grandes nomes como:
+- `Google`
+- `Red Hat`
+- `Von Braun Labs`
+- `CERN` (Centro de pesquisas nucleares Europeu)
+- `NU`
+- `Magalu`
+- `Leroy Merlin`
+
+Ou seja, o PATOS é um lugar muito bom para conhecer pessoas bem empregadas e que conhecem bem o mercado de trabalho, e um ótimo lugar para se desenvolver acadêmicamente e profissionalmente.
+
 ---
 
 ### Como funciona o PATOS/POMBO PSEL 2.0?
