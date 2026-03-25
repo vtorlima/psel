@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net" //pacote para trabalhar com rede (TCP, sockets, etc)
 )
 
@@ -31,21 +32,30 @@ func handleConn(conn net.Conn) {
 	//garante que a conexão feche quando a função terminar
 	defer conn.Close()
 
-	//cria um buffer de 1024 bytes
+	//aumenta o buffer de 1024 pra 4096
 	//esse buffer vai armazenar os dados recebidos temporariamente
-	buf := make([]byte, 1024)
+	buf := make([]byte, 4096)
 
-	// loop infinito pra continuar lendo os dados dessa conexão
-	for {
+	// lê os dados recebidos
+	n, _ := conn.Read(buf)
 
-		//le dados vindos do cliente e coloca dentro do buffer
-		//n é o número de bytes lidos
-		n, _ := conn.Read(buf)
+	// converte os bytes recebidos em string
+	raw := string(buf[:n])
 
-		println(string(buf[:n]))
+	// chama o parser -> transforma a string bruta na struct organizada
+	req := parseRequest(raw)
 
-		//retorna os mesmos bytes que foram recebidos
-		//buf[:n] garante que só a parte válida seja enviada
-		conn.Write(buf[:n])
-	}
+	// Imprime o método da requisição
+	fmt.Println("Method:", req.Method)
+
+	// Imprime o caminho solicitado
+	fmt.Println("Path:", req.Path)
+
+	// resposta HTTP (sem body nem header pois são opcionais)
+	// para que o browser receba resposta e não trave
+	response := "HTTP/1.1 200 OK\r\n\r\n"
+
+	// envia a resposta convertendo pra byte
+	conn.Write([]byte(response))
+
 }
