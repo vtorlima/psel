@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net" //pacote para trabalhar com rede (TCP, sockets, etc)
+	"os"  // ler e escrever arquivos
 )
 
 func main() {
@@ -51,11 +52,58 @@ func handleConn(conn net.Conn) {
 	// Imprime o caminho solicitado
 	fmt.Println("Path:", req.Path)
 
-	// resposta HTTP (sem body nem header pois são opcionais)
-	// para que o browser receba resposta e não trave
-	response := "HTTP/1.1 200 OK\r\n\r\n"
+	// se o path não começar com /files/, responde 404 ( not found )
+	if len(req.Path) < 7 || req.Path[:7] != "/files/" {
+		response := "HTTP/1.1 404 Not Found\r\n\r\n"
+		conn.Write([]byte(response))
+		return
+	}
 
-	// envia a resposta convertendo pra byte
+	// pega apenas o nome do arquivo (removendo files)
+	fileName := req.Path[7:]
+
+	// se o nome do arquvo estiver vazio, responde 400 (bad request)
+	if fileName == "" {
+		response := "HTTP/1.1 400 Bad Request\r\n\r\n"
+		conn.Write([]byte(response))
+		return
+	}
+
+	// caminho do arquivo no disco
+	filePath := "files/" + fileName
+
+	// se for GET, le o arquivo e devolve o conteúdo
+	if req.Method == "GET" {
+		data, err := os.ReadFile(filePath)
+
+		if err != nil {
+			response := "HTTP/1.1 404 Not Found\r\n\r\n"
+			conn.Write([]byte(response))
+			return
+		}
+
+		response := "HTTP/1.1 200 OK\r\n\r\n" + string(data)
+		conn.Write([]byte(response))
+		return
+
+	}
+	// se for POST, escreve o body no arquivo
+	if req.Method == "POST" {
+		// garante que a pasta files exista
+		os.MkdirAll("files", 0755)
+		err := os.WriteFile(filePath, []byte(req.Body), 0644)
+
+		// falha ao escrever o arquivo -> 500
+		if err != nil {
+			response := "HTTP/1.1 500 Internal Server Error\r\n\r\n"
+			conn.Write([]byte(response))
+			return
+		}
+		response := "HTTP/1.1 200 OK\r\n\r\n"
+		conn.Write([]byte(response))
+		return
+	}
+	// se não for GET nem POST, responde 405
+	response := "HTTP/1.1 405 Method Not Allowed\r\n\r\n"
 	conn.Write([]byte(response))
-
 }
