@@ -8,10 +8,17 @@ import (
 
 func main() {
 
-	//sem tratamento de erro por enquanto
-	//cria um servidor TCP escutando na porta 8080
-	//retorna um listener (ln) que é responsável por aceitar conexões
-	ln, _ := net.Listen("tcp", ":8080")
+	// lê a porta pela variável PORT
+	port := os.Getenv("PORT")
+
+	// se nenhuma porta for informada, usa 8080
+	if port == "" {
+		port = "8080"
+	}
+
+	// cria um servidor tcp escutando na porta
+	// returna um listener (ln) que é responsável por aceitar conexões
+	ln, _ := net.Listen("tcp", ":"+port)
 
 	//loop infinito: servidor nunca para de aceitar novas conexões enquanto ativo
 	for {
