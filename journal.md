@@ -43,7 +43,18 @@ Além disso, ajustei o comportamento do servidor para garantir que a pasta `file
 Por fim, testei o funcionamento com `curl`, validando as requisições ao servidor e o tratamento de rotas de leitura e escrita de arquivos.
 
 Além disso, estudei permissões em octal e códigos HTTP, organizando essas informações em tabelas para facilitar a consulta e evitar confusão.
----
+
+# Dia 5
+
+Comecei estudando o pacote sync/atomic, focando na função AddUint64 e no motivo de ela ser necessária em um ambiente com múltiplas goroutines. A ideia principal era entender o que acontece quando duas goroutines tentam modificar uma mesma variável ao mesmo tempo, o que me levou ao conceito de race condition e à importância de operações atômicas para evitar inconsistências no contador.
+
+Depois disso, dei uma olhada no io.Copy, entendendo que ele basicamente lê dados de um reader até EOF e escreve em um writer. Isso simplifica bastante o fluxo de proxy, já que toda a transferência de dados pode ser feita sem precisar gerenciar manualmente buffers de leitura e escrita.
+
+Com isso, parti para a implementação do load balancer em si. Criei o listener na porta 9090 e mantive o padrão dos dias anteriores: loop infinito aceitando conexões e uma goroutine para cada cliente chamando forward().
+
+Dentro do forward(), organizei o fluxo em etapas simples: primeiro leio a requisição do cliente em um buffer, depois escolho o backend com pickBackend() (usando round-robin com atomic.AddUint64), faço a conexão com o backend via net.Dial, envio a requisição e, por fim, uso io.Copy para repassar a resposta de volta para o cliente.
+
+Por fim, testei com três servidores rodando nas portas 9001, 9002 e 9003, e o load balancer na 9090. Usando curl para fazer requisições, consegui observar claramente a distribuição em round-robin, com cada requisição indo para um backend diferente e o ciclo reiniciando corretamente.
 
 ## Códigos HTTP usados no projeto
 
