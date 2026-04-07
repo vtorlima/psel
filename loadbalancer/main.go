@@ -1,25 +1,15 @@
 package main
 
 import (
-	"io"          // pra usar o copy e repassar os dados
-	"net"         // conexões TCP
-	"sync/atomic" // contador
+	"io"  // pra usar o copy e repassar os dados
+	"net" // conexões TCP
 )
 
-// lista dos backends
-var backends = []string{
-	"localhost:9001",
-	"localhost:9002",
-	"localhost:9003",
-}
-
-// contador global +1 a cada requisição
-var counter uint64
-
-// escolhe o próximo backend em ordem circular
-func pickBackend() string {
-	idx := atomic.AddUint64(&counter, 1) - 1
-	return backends[idx%uint64(len(backends))]
+// lista dos backends com rastreamento de conexões ativas
+var backendList = []*Backend{
+	{Address: "localhost:9001"},
+	{Address: "localhost:9002"},
+	{Address: "localhost:9003"},
 }
 
 func main() {
@@ -49,10 +39,14 @@ func forward(clientConn net.Conn) {
 	if err != nil {
 		return
 	}
+
+	// escolhe o backend com menos conexões ativas
 	backend := pickBackend()
+	backend.IncrementConns()
+	defer backend.DecrementConns()
 
 	// conecta no backend
-	backendConn, err := net.Dial("tcp", backend)
+	backendConn, err := net.Dial("tcp", backend.Address)
 	if err != nil {
 		return
 	}
