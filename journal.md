@@ -56,6 +56,21 @@ Dentro do forward(), organizei o fluxo em etapas simples: primeiro leio a requis
 
 Por fim, testei com três servidores rodando nas portas 9001, 9002 e 9003, e o load balancer na 9090. Usando curl para fazer requisições, consegui observar claramente a distribuição em round-robin, com cada requisição indo para um backend diferente e o ciclo reiniciando corretamente.
 
+# Dia 6
+Round robin funciona bem para requisições que levam o mesmo tempo para serem processadas, entretanto, é falho na realidade, onde cada requisição leva um tempo diferente. Para isso, resolvi implementar uma lógica que redirecionasse a requisição sempre para o servidor com menos conexões.
+
+Comecei revisando o uso de sync.Mutex, focando em como Lock() e Unlock() garantem exclusão mútua entre goroutines. A ideia principal foi entender que, sem esse controle, múltiplas goroutines podem acessar e modificar o mesmo dado ao mesmo tempo, gerando inconsistências.
+
+Durante isso, surgiu a dúvida sobre o acesso simultâneo à variável ActiveConns. Mesmo em leituras, quando há escrita concorrente, existe risco de obter valores inconsistentes, então o uso do mutex se torna necessário para garantir leitura e escrita seguras.
+
+Depois, parti para a implementação no balancer.go. Criei uma struct Backend contendo Address, ActiveConns e um sync.Mutex, permitindo que cada backend gerencie seu próprio estado de forma isolada.
+
+Em seguida, implementei métodos auxiliares para encapsular o acesso a ActiveConns: incremento, decremento e leitura. Todos seguem o mesmo padrão de adquirir o lock antes de acessar o valor e liberar logo após.
+
+Com isso pronto, modifiquei a lógica do pickBackend(). Em vez de round-robin, passei a iterar pelos backends e selecionar aquele com menor número de conexões ativas, utilizando os métodos criados para garantir leitura consistente. Também adicionei logs simples para visualizar o comportamento da escolha.
+
+Por fim, integrei isso ao fluxo do forward(): ao selecionar um backend, incremento o contador de conexões e utilizo defer para garantir que o decremento aconteça ao final da execução, independentemente de erros.
+
 ## Códigos HTTP usados no projeto
 
 | Código | Nome | Quando usar |
