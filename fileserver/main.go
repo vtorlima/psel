@@ -5,7 +5,6 @@ import (
 	"net" //pacote para trabalhar com rede (TCP, sockets, etc)
 	"os"  // ler e escrever arquivos
 	"strconv"
-	"strings"
 )
 
 func main() {
@@ -71,8 +70,7 @@ func handleConn(conn net.Conn) {
 
 	// se o path não começar com /files/, responde 404 ( not found )
 	if len(req.Path) < 7 || req.Path[:7] != "/files/" {
-		response := "HTTP/1.1 404 Not Found\r\n\r\n"
-		conn.Write([]byte(response))
+		conn.Write([]byte(httpResponse("HTTP/1.1 404 Not Found", "")))
 		return
 	}
 
@@ -81,8 +79,7 @@ func handleConn(conn net.Conn) {
 
 	// se o nome do arquvo estiver vazio, responde 400 (bad request)
 	if fileName == "" {
-		response := "HTTP/1.1 400 Bad Request\r\n\r\n"
-		conn.Write([]byte(response))
+		conn.Write([]byte(httpResponse("HTTP/1.1 400 Bad Request", "")))
 		return
 	}
 
@@ -94,13 +91,11 @@ func handleConn(conn net.Conn) {
 		data, err := os.ReadFile(filePath)
 
 		if err != nil {
-			response := "HTTP/1.1 404 Not Found\r\n\r\n"
-			conn.Write([]byte(response))
+			conn.Write([]byte(httpResponse("HTTP/1.1 404 Not Found", "")))
 			return
 		}
 
-		response := "HTTP/1.1 200 OK\r\n\r\n" + string(data)
-		conn.Write([]byte(response))
+		conn.Write([]byte(httpResponse("HTTP/1.1 200 OK", string(data))))
 		return
 
 	}
@@ -112,15 +107,12 @@ func handleConn(conn net.Conn) {
 
 		// falha ao escrever o arquivo -> 500
 		if err != nil {
-			response := "HTTP/1.1 500 Internal Server Error\r\n\r\n"
-			conn.Write([]byte(response))
+			conn.Write([]byte(httpResponse("HTTP/1.1 500 Internal Server Error", "")))
 			return
 		}
-		response := "HTTP/1.1 200 OK\r\n\r\n"
-		conn.Write([]byte(response))
+		conn.Write([]byte(httpResponse("HTTP/1.1 200 OK", "")))
 		return
 	}
 	// se não for GET nem POST, responde 405
-	response := "HTTP/1.1 405 Method Not Allowed\r\n\r\n"
-	conn.Write([]byte(response))
+	conn.Write([]byte(httpResponse("HTTP/1.1 405 Method Not Allowed", "")))
 }
