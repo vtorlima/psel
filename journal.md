@@ -71,6 +71,102 @@ Com isso pronto, modifiquei a lógica do pickBackend(). Em vez de round-robin, p
 
 Por fim, integrei isso ao fluxo do forward(): ao selecionar um backend, incremento o contador de conexões e utilizo defer para garantir que o decremento aconteça ao final da execução, independentemente de erros.
 
+# Dia 7
+
+Eu estou bem satisfeito com o funcionamento do load balancer em si. Entretanto, uma das categorias de avaliação é ser **HTTP compliant**, então o foco de hoje foi ajustar o fileserver para que ele se comportasse corretamente ao ser acessado pelo navegador, e não apenas pelo `curl`.
+
+A primeira mudança necessária estava na forma como a resposta HTTP era montada. Antes, eu retornava:
+
+```go
+response := "HTTP/1.1 200 OK\r\n\r\n" + string(data)
+conn.Write([]byte(response))
+```
+
+Ao retornar apenas `HTTP/1.1 200 OK\r\n\r\n` seguido do conteúdo, o servidor não informa dados importantes sobre a resposta. No HTTP/1.1, o cliente precisa de alguma forma clara de saber onde o conteúdo termina.
+
+O curl consegue lidar com isso porque, quando esses headers não existem, ele assume que a resposta termina quando a conexão TCP é fechada. Já os navegadores mantêm a conexão aberta (keep-alive). Nesse caso, como a conexão não fecha logo após a resposta, o navegador não consegue usar isso como referência para saber onde o conteúdo termina.
+
+O padrão HTTP/1.1 exige:
+```
+HTTP/1.1 200 OK
+Content-Length: <tamanho_em_bytes>
+Content-Type: <tipo_do_conteudo>
+Connection: <keep-alive ou close>
+
+<body da resposta>
+```
+
+Sem o `Content-Length`, o browser não sabe quantos bytes deve ler e pode continuar esperando mais dados, o que faz a requisição travar. Além disso, não informar algo como `Connection: close` deixa ainda mais indefinido se a conexão vai continuar aberta ou não, o que pode causar comportamentos inesperados.
+
+Por isso, criei uma função auxiliar para montar as respostas com os headers essenciais:
+
+```go
+func httpResponse(statusLine string, body string) string {
+	headers := "Content-Length: " + strconv.Itoa(len(body)) + "\r\n"
+	headers += "Content-Type: text/plain\r\n"
+	headers += "Connection: close\r\n"
+	return statusLine + "\r\n" + headers + "\r\n" + body
+}
+```
+
+Com isso, passei a informar de forma explícita:
+- O tamanho do body com `Content-Length`
+- O tipo do conteúdo com `Content-Type: text/plain`
+- O encerramento da conexão com `Connection: close`
+
+Todos os pontos de retorno dentro do `handleConn` foram atualizados para usar essa função:
+
+```go
+conn.Write([]byte(httpResponse("HTTP/1.1 404 Not Found", "")))
+conn.Write([]byte(httpResponse("HTTP/1.1 200 OK", string(data))))
+```
+
+O segundo problema estava na leitura da requisição. Antes, a lógica era baseada em uma única chamada de `conn.Read()`:
+
+```go
+buf := make([]byte, 4096)
+n, _ := conn.Read(buf)
+raw := string(buf[:n])
+```
+
+Desde o começo, todos os materiais reforçam o fato de que **TCP é um protocolo de fluxo**, por isso, não tem como garantir que toda a requisição chegará em uma única leitura. O browser normalmente envia mais headers do que o curl, e esses dados podem chegar divididos em múltiplos pacotes. Nesse caso, o parser podia acabar recebendo uma string incompleta.
+
+Para corrigir isso, criei a função `readRequest()`, que faz a leitura em loop até encontrar `\r\n\r\n`, que marca o fim dos headers HTTP:
+
+```go
+func readRequest(conn net.Conn) string {
+	var raw strings.Builder
+	buf := make([]byte, 4096)
+
+	for {
+		n, err := conn.Read(buf)
+		if n > 0 {
+			raw.Write(buf[:n])
+		}
+		if err != nil || strings.Contains(raw.String(), "\r\n\r\n") {
+			break
+		}
+	}
+
+	return raw.String()
+}
+```
+
+Depois disso, no `handleConn`, removi a lógica antiga:
+
+```go
+// Antes:
+buf := make([]byte, 4096)
+n, _ := conn.Read(buf)
+raw := string(buf[:n])
+
+// Depois:
+raw := readRequest(conn)
+req := parseRequest(raw)
+```
+
+Assim, a requisição só é enviada ao parser depois que os headers completos foram recebidos.
+
 ## Códigos HTTP usados no projeto
 
 | Código | Nome | Quando usar |
