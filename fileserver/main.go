@@ -5,6 +5,7 @@ import (
 	"net" //pacote para trabalhar com rede (TCP, sockets, etc)
 	"os"  // ler e escrever arquivos
 	"strconv"
+	"strings"
 )
 
 func main() {
@@ -35,6 +36,25 @@ func main() {
 	}
 }
 
+// lê a requisição completa até encontrar o fim dos headers (\r\n\r\n)
+// um único conn.Read() pode não capturar tudo se a requisição chegar em múltiplos pacotes
+func readRequest(conn net.Conn) string {
+	var raw strings.Builder
+	buf := make([]byte, 4096)
+
+	for {
+		n, err := conn.Read(buf)
+		if n > 0 {
+			raw.Write(buf[:n])
+		}
+		if err != nil || strings.Contains(raw.String(), "\r\n\r\n") {
+			break
+		}
+	}
+
+	return raw.String()
+}
+
 // monta uma resposta HTTP com os headers essenciais para compatibilidade com browser
 func httpResponse(statusLine string, body string) string {
 	headers := "Content-Length: " + strconv.Itoa(len(body)) + "\r\n"
@@ -49,15 +69,8 @@ func handleConn(conn net.Conn) {
 	//garante que a conexão feche quando a função terminar
 	defer conn.Close()
 
-	//aumenta o buffer de 1024 pra 4096
-	//esse buffer vai armazenar os dados recebidos temporariamente
-	buf := make([]byte, 4096)
-
-	// lê os dados recebidos
-	n, _ := conn.Read(buf)
-
-	// converte os bytes recebidos em string
-	raw := string(buf[:n])
+	// lê a requisição completa
+	raw := readRequest(conn)
 
 	// chama o parser -> transforma a string bruta na struct organizada
 	req := parseRequest(raw)
