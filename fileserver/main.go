@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"net" //pacote para trabalhar com rede (TCP, sockets, etc)
 	"os"  // ler e escrever arquivos
+	"strconv"
+	"strings"
 )
 
 func main() {
@@ -32,6 +34,14 @@ func main() {
 		go handleConn(conn)
 
 	}
+}
+
+// monta uma resposta HTTP com os headers essenciais para compatibilidade com browser
+func httpResponse(statusLine string, body string) string {
+	headers := "Content-Length: " + strconv.Itoa(len(body)) + "\r\n"
+	headers += "Content-Type: text/plain\r\n"
+	headers += "Connection: close\r\n"
+	return statusLine + "\r\n" + headers + "\r\n" + body
 }
 
 // função responsável por lidar com uma conexão específica
